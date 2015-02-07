@@ -63,7 +63,7 @@
   </style>
 </head>
 <body>
-
+<script src = "http://code.jquery.com/jquery-2.1.3.min.js"></script>
 <h1>Skills&mdash;Javascript</h1>
 <p>
   For each numbered problem, fill in the corresponding <code>&lt;script&gt;</code> section in the
@@ -232,18 +232,27 @@
 </fieldset>
 
 <script>
-  var todolist = document.getElementById("make-todo-list")
+  var todolistbutton = document.getElementById("make-todo-list");
 
-  function generateList(evt) { 
-    var text
-    for (i = 0; i < 11; i++) {
-      text += i + "<br>";
-    }
 
-  }
+  var todolist = document.getElementById("empty-todo-list");
 
-  todolist.on("click", generateList)
-  text
+  var emString = ""
+  function generateString () { for (var i=1; i<11; i++) {
+    emString = emString + "<li>" + i + "</li>"
+  };
+    return emString
+
+  };
+
+  var dolist = generateString()
+  function assemblelist() {
+  todolist.innerHTML = "<ul id='empty-todo-list'>"+dolist+"</ul>";
+  }; 
+
+
+  todolistbutton.addEventListener("click", assemblelist);
+
 </script>
 
 <div class="hint">
@@ -270,22 +279,17 @@
 </fieldset>
 
 <script>
-//  Here's a stub of a function you can use!
+ function reverseString() {
+   var msg = "Porcupines are cute";
+   var newMsg = "";
+   for (var i=0; i<msg.length; i++) {
+        newMsg = msg[i] + newMsg
+   }
+   alert(newMsg);
+ }
 
-//  function reverseString() {
-//    var msg = "Porcupines are cute";
-//
-//    // do some stuff here to reverse that string into a new variable
-//    var newMsg = "This should be the reversed string";
-//
-//    alert(newMsg);
-//  }
-
-// Here's a stub of event stuff you could use
-//
-
-//  var button = document.getElementById('reverse-string-button');
-//  button.addEventListener('click', reverseString);
+ var button = document.getElementById('reverse-string-button');
+ button.addEventListener('click', reverseString);
 </script>
 
 
@@ -295,7 +299,7 @@
 
 <h2>jQuery</h2>
 <p>You should use jQuery for these parts.</p>
-<p>We didn't include jQuery in this document, though&mdash;so your first task is to include it!</p>
+<p>We didn't include jQuery in this document, though&mdash;so your first task is to include it! DONE! BAM!</p>
 
 
 
@@ -315,7 +319,9 @@
 </fieldset>
 
 <script>
-  // put your code here
+$("#kittenz-rule").dblclick(function () {
+  $("#kittenz-rule").attr("src", "https://s-media-cache-ak0.pinimg.com/236x/12/0d/00/120d00e8139a9301d042b3a0d9b1df4d.jpg");
+});
 </script>
 
 <div class="hint">
@@ -348,7 +354,20 @@
 </fieldset>
 
 <script>
-  // put your code here
+
+function porc() {
+  $("#cute-porcupine-image").attr("style", "display:inline" );
+}
+
+function lateporc() {
+  setTimeout(porc, 1000)
+}
+
+
+$("#make-a-porcupine").on("click", lateporc)
+
+
+
 </script>
 
 <div class="hint">
@@ -380,7 +399,11 @@
 </fieldset>
 
 <script>
-  // put your code here
+$("#agreeable-form").on("submit", function (evt){
+  evt.preventDefault();
+  // var fav = $(this).find("input[name ='favorite-food']");
+  // $("#agreeable-text").html("I like"+fav+"too!");
+});
 </script>
 
 <div class="hint">
