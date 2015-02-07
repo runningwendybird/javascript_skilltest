@@ -401,8 +401,8 @@ $("#make-a-porcupine").on("click", lateporc)
 <script>
 $("#agreeable-form").on("submit", function (evt){
   evt.preventDefault();
-  // var fav = $(this).find("input[name ='favorite-food']");
-  // $("#agreeable-text").html("I like"+fav+"too!");
+  var fav = $("#favorite-food-input").val()
+  $("#agreeable-text").html("I like "+fav+" too!");
 });
 </script>
 
